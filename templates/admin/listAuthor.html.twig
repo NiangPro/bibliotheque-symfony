@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container mt-2 col-md-5">
+    <h3 class="text-center">Liste des auteurs</h3>
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for author in authors %}
+            <tr>
+                <td>{{ author.prenom }}</td>
+                <td>{{ author.nom }}</td>
+                <td><a href="{{ path('editAuthor', {id: author.id}) }}" class="btn btn-outline-info">Modifier</a></td>
+                <td><a href="{{ path('deleteAuthor', {id: author.id}) }}" class="btn btn-outline-danger">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

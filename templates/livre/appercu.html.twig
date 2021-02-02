@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row mt-2 gutters">
+        {% for book in books %}
+        <div class="col-md-2 mt-1">
+            <div class="card card-cascade">
+                <a href="{{ path('infoBook', {id:book.id}) }}">
+                <img src="{{ book.filename }}" alt="" class="card-img-top" height="300">
+                <span class="mask rgba-white-slight"></span></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock body %}

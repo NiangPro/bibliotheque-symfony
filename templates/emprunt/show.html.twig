@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emprunt{% endblock %}
+
+{% block body %}
+    <h1>Emprunt</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ emprunt.id }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ emprunt.dateDebut ? emprunt.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFin</th>
+                <td>{{ emprunt.dateFin ? emprunt.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('emprunt_index') }}">back to list</a>
+
+    <a href="{{ path('emprunt_edit', {'id': emprunt.id}) }}">edit</a>
+
+    {{ include('emprunt/_delete_form.html.twig') }}
+{% endblock %}

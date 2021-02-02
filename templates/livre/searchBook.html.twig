@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Recherche livre {% endblock title %}
+
+{% block body %}
+    <div class="container col-md-3 mt-5">
+      <h4>Formulaire de recherche</h4>
+        {{ form_start(form)}}
+          {{ form_row( form.title, {'label':'Titre', 'attr':{'placeholder':'Titre, collection...'}})}}
+          <button type="submit" class="btn btn-warning" >Rechercher</button>
+                 
+        {{ form_end(form) }} 
+      </div>
+
+      {% if app.request.method ==  'POST' %}
+      <div class="container col-md-9 mt-4">
+        {% if books |length == 0 %}
+        <h3 class="text-center alert alert-warning text-dark">Aucun résultat pour le moment</h3>
+        {% else %}
+        <h3 class="text-center">Le résultat de la recherche</h3>
+        <div class="row">
+          {% for book in books %}
+            <div class="col-md-3">
+              <div class="row">
+                <img src="{{ book.filename }}" alt="" height="200" width="200">
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <h5>Titre :</h5>
+                </div>
+                <div class="col-md-6">
+                  <h6>{{ book.title }}</h6>
+                </div>
+              </div>
+              <div class="row">
+                <a href="{{ path('infoBook', {id: book.id })}}" class="btn btn-warning">Voir plus</a>
+              </div>
+              
+            </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+    
+{% endblock body %}

@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container col-md-5">
+        <h2 class="text-center">Inscription</h2>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.prenom, {'label':'Prénom', 'attr':{'placeholder' : 'Entrer votre prénom'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.nom, {'label':'Nom', 'attr':{'placeholder' : 'Entrer votre nom'}}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.phone, {'label':'Numéro de téléphone', 'attr':{'placeholder':'Entrez votre numéro de téléphone'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.username, {'label':'Login', 'attr':{'placeholder' : 'Entrer votre login'}}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_row(form.email, {'label':'Email', 'attr':{'placeholder' : 'Entrer votre adresse email'}}) }}
+            </div>           
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_row(form.password, {'label':'Mot de passe', 'attr':{'placeholder' : 'Entrer votre mot de passe'}}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_row(form.confirmPassword, {'label':'Mot de passe de confirmation', 'attr':{'placeholder' : 'Entrer votre mot de passe de confirmation'}}) }}
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-success">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock body %}

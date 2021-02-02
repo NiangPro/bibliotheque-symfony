@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block title %}Edition d'auteur{% endblock title %}
+
+{% block body %}
+    <div class="container col-md-4">
+        <h1 class="text-center">Edition auteur</h1>
+        {{ form_start(form) }}
+            {{ form_row(form.prenom) }}
+            {{ form_row(form.nom)}}
+            <button type="submit" class="btn btn-dark">Modifier</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
